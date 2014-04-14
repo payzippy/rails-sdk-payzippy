@@ -16,4 +16,4 @@ http://www.rackspace.com/blog/installing-rails-on-a-mac/
 3. Go inside the folder and run "bundle install" to install missing gems.
 
 4. Enter rails s in your terminal and goto 
-localhost:3000/api/charging/charging/show for Charging API and from there Query and refund API can also be accessed.
+localhost:3000/ and from there to Charging, Query and refund API can also be accessed.
