@@ -1,0 +1,97 @@
+<html>
+<head>
+  <title>Payzippy SDK</title>
+  <link href="dirname(__FILE__)/../../css/bootstrap.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div class="navbar navbar-inverse">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">Rails SDK</a>
+
+      <div class="nav-collapse collapse">
+        <ul class="nav">
+          <li><a href="../charging/show">Charging</a></li>
+          <li><a href="../query/show">Query</a></li>
+          <li><a href="../refund/show">Refund</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <h3>Structure of the SDK</h3>
+
+            <pre>
+
+    |- Rails-sdk
+        |- app/controllers/
+            |- charging_controller.rb
+            |- query_controller.rb
+            |- refund_controller.rb
+        	|- lib/
+        		|- config.rb
+        		|- utils.rb
+        		|- constants.rb
+        		|- charging
+            			|- charging_request.rb
+            			|- charging_response.rb
+            		|- query
+            			|- query_request.rb
+            			|- query_response.rb
+            			|- query_transaction_response.rb
+            		|- refund
+            			|- refund_request.rb
+            			|- refund_response.rb
+            			|- refund_transaction_response.rb
+        |- app/views/
+        	|- charging
+        		|- charging_display.html.erb
+        		|- show.html.erb
+        	|- response
+        		|- response_display.html.erb
+        	|- query
+        		|- index.html.erb
+        		|- show.html.erb
+        	|- refund
+        		|- index.html.erb
+        		|- show.html.erb
+
+        |- config
+        	|- routes.rb
+
+            </pre>
+
+  <hr/>
+
+  <h3>Setup</h3>
+
+  <p>
+    How to use?
+  <ol>
+    <li>Copy-Paste rails-sdk folder in your system and execute rails s in your teminal.</li>
+    <li>To set up your config details, fill the details provided by PayZippy, in <code>controllers/lib/config.rb</code> file.
+      <ul>
+        <li><code>MERCHANT_ID</code> Your Merchant ID</li>
+        <li><code>SECRET_KEY</code> Your Secret Key for the Payzippy API. Do not share this!</li>
+        <li><code>CALLBACK_URL</code> The URL that the Charging API would call on transaction completion. For
+          the examples provided,
+          this should point to <code>http://localhost:3000/response/response_display</code></li>
+      </ul>
+    </li>
+  </ol>
+  </p>
+
+  <hr/>
+
+  <h3>Examples</h3>
+
+  <p>To check out the sample SDK integrations, go the <a href="./charging/show/">SDK Integration
+    Examples</a> page.</p>
+  <hr/>
+</div>
+
+</body>
+</html>
+

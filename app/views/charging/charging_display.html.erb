@@ -1,0 +1,72 @@
+<html>
+<head>
+  <style>
+      #ifr {
+          overflow-y: scroll;
+          overflow-x: scroll;
+          width: 675px;
+      !important;
+          height: 400px !important;
+          border-color: #d9d9d9;
+          border: 1px solid #D6D4D4;
+      }
+  </style>
+  <%= stylesheet_link_tag "bootstrap" %>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
+  </script>
+
+  <%= stylesheet_link_tag "bootstrap" %>
+  <title>Payzippy Integration Examples</title>
+  <link href="dirname(__FILE__)/../../css/bootstrap.css" rel="stylesheet" type="text/css">
+  <style>
+      .required {
+          font-weight: bold;
+      }
+  </style>
+</head>
+
+<body>
+<div class="navbar navbar-inverse">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="../../">Rails SDK</a>
+
+      <div class="nav-collapse collapse">
+        <ul class="nav">
+          <li><a href="../charging/show">Charging</a></li>
+          <li><a href="../query/show">Query</a></li>
+          <li><a href="../refund/show">Refund</a></li>
+        </ul>
+      </div>
+      <!--/.nav-collapse -->
+    </div>
+  </div>
+</div>
+
+<!--Display error when it comes -->
+<%if @request_array["error_message"] == "" %>
+
+    <% if @param["ui_mode"] == "IFRAME" %>
+        <br>q
+        <iframe id="ifr" src="<%= @request_array["url"] %>"></iframe>
+
+    <% elsif  @param["ui_mode"] == "REDIRECT" %>
+        <br>
+
+        <form method="post" action="<%= @request_array["url"] %>" id="charging_request_form">
+          <% @param.each do |key, val| %>
+              <input type="hidden" name="<%= key %>" value="<%= val %>"/>
+          <% end %>
+        </form>
+
+        <script>
+            document.getElementById("charging_request_form").submit();
+        </script>
+    <% end %>
+<% else %>
+    Error Message: <%= @request_array["error_message"] %>
+    <br>
+    <hr>
+<% end %>
+</body>
+</html>

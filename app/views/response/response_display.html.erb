@@ -1,0 +1,104 @@
+<head>
+  <style>
+      .hash_match_success {
+          color: green;
+      }
+
+      .hash_match_failed {
+          color: red;
+      }
+  </style>
+
+  <%= stylesheet_link_tag "bootstrap" %>
+  <title>Payzippy Integration Examples</title>
+  <link href="dirname(__FILE__)/../../css/bootstrap.css" rel="stylesheet" type="text/css">
+  <style>
+      .required {
+          font-weight: bold;
+      }
+  </style>
+</head>
+<body>
+<div class="navbar navbar-inverse">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="../../">Rails SDK</a>
+
+      <div class="nav-collapse collapse">
+        <ul class="nav">
+          <li><a href="../charging/show">Charging</a></li>
+          <li><a href="../query/show">Query</a></li>
+          <li><a href="../refund/show">Refund</a></li>
+        </ul>
+      </div>
+      <!--/.nav-collapse -->
+    </div>
+  </div>
+</div>
+
+<% if @hash_match %>
+    <div class="hash_match_success">
+      <h3>Hash Matching Successful</h3></br>
+    </div>
+<% else %>
+    <div class="hash_match_failed">
+      <h3>Hash Matching Failed</h3></br>
+    </div>
+<% end %>
+
+<h1>Response#Params</h1>
+This is the page which was sent by the MERCHANT as callbackurl. This can be anypage like: order-confirmation page,
+orders page, history page...
+<br>
+
+<h4>Charging Response</h4>
+Merchant ID:                    <%= @merchant_id %>
+<br/>
+Merchant Key ID:                <%= @merchant_key_id %>
+<br/>
+Merchant Transaction ID:        <%= @merchant_transaction_id %>
+<br/>
+PayZippy Transaction ID:        <%= @payzippy_transaction_id %>
+<br/>
+Transaction Status:            <%= @transaction_status %>
+<br/>
+Transaction Response Code:        <%= @transaction_response_code %>
+<br/>
+Transaction Response Message:    <%= @transaction_response_message %>
+<br/>
+Payment Method:                <%= @payment_method %>
+<br/>
+Bank Name:                        <%= @bank_name %>
+<br/>
+EMI Months:                    <%= @emi_months %>
+<br/>
+Transaction Amount:            <%= @transaction_amount %>
+<br/>
+Transaction Currency:            <%= @transaction_currency %>
+<br/>
+Transaction Time:                <%= @transaction_time %>
+<br/>
+Fraud Action:                    <%= @fraud_action %>
+<br/>
+Fraud Details:                    <%= @fraud_details %>
+<br/>
+is international :                <%= @is_international%>
+<br/>
+Version:                        <%= @version %>
+<br/>
+UDF1:                            <%= @udf1 %>
+<br/>
+UDF2:                            <%= @udf2 %>
+<br/>
+UDF3:                            <%= @udf3 %>
+<br/>
+UDF4:                            <%= @udf4 %>
+<br/>
+UDF5:                            <%= @udf5 %>
+<br/>
+Hash Method:                    <%= @hash_method %>
+<br/>
+Hash Received:                   <%= @hash %>
+<br/>
+Hash Calculated:                <%= @hash_value %></br></br>
+</body>

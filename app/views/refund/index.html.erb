@@ -1,0 +1,78 @@
+<head>
+  <style>
+      .hash_match_success {
+          color: green;
+      }
+
+      .hash_match_failed {
+          color: red;
+      }
+  </style>
+
+  <%= stylesheet_link_tag "bootstrap" %>
+  <title>Payzippy Integration Examples</title>
+  <link href="dirname(__FILE__)/../../css/bootstrap.css" rel="stylesheet" type="text/css">
+  <style>
+      .required {
+          font-weight: bold;
+      }
+  </style>
+</head>
+<body>
+<div class="navbar navbar-inverse">
+  <div class="navbar-inner">
+    <div class="container">
+            <a class="brand" href="../../">Rails SDK</a>
+
+      <div class="nav-collapse collapse">
+        <ul class="nav">
+          <li><a href="../charging/show">Charging</a></li>
+          <li><a href="../query/show">Query</a></li>
+          <li><a href="../refund/show">Refund</a></li>
+        </ul>
+      </div>
+      <!--/.nav-collapse -->
+    </div>
+  </div>
+</div>
+
+
+<h1>Api::Refund::Refund#index</h1>
+<br><br>
+<% if @validate_refund %>
+    <div class="hash_match_success">
+      <h3>Hash Matching Successful</h3></br>
+    </div>
+<% else %>
+    <div class="hash_match_failed">
+      <h3>Hash Matching Failed</h3></br>
+    </div>
+<% end %>
+
+Status Code: <%= @status_code %>
+<br/>
+Status Message: <%= @status_message %></br>
+Error Code: <%= @error_code %></br>
+Error Message: <%= @error_message %></br>
+Merchant ID: <%= @merchant_id %></br>
+Merchant Key ID: <%= @merchant_key_id %></br>
+Hash Method: <%= @hash_method %></br>
+<br/>
+
+<h4>Refund Response(s)</h4>
+Merchant Transaction ID: <%= @merchant_transaction_id %></br>
+Payzippy Transaction ID: <%= @payzippy_transaction_id %></br>
+Bank ARN: <%= @bank_arn %></br>
+refund Amount: <%= @refund_amount %></br>
+Refund Currency: <%= @refund_currency %></br>
+Transaction Time: <%= @transaction_time %></br>
+Refund Status: <%= @refund_status %></br>
+Refund Response Code: <%= @refund_response_code %></br>
+Refund Response Message: <%= @refund_response_message %></br>
+UDF1: <%= @udf1 %></br>
+UDF2: <%= @udf2 %></br>
+UDF3: <%= @udf3 %></br>
+UDF4: <%= @udf4 %></br>
+UDF5: <%= @udf5 %></br>
+
+</body>
