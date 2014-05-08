@@ -3,28 +3,26 @@ payzippy-rails-sdk
 
 This is PayZippy's SDK for Ruby on Rails
 
-==Installing Rails on Mac==
-
+### Installing Rails on Mac
 http://www.rackspace.com/blog/installing-rails-on-a-mac/
 
-==Installation==
+### Installation
 
 1. Download and unzip to get rails-sdk-payzippy folder.
-
 2. Put it in your gems folder.
-
 3. Go inside the folder and run "bundle install" to install missing gems.
-
-4. Enter rails s in your terminal and goto 
-localhost:3000/ and from there to Charging, Query and refund API can also be accessed.
+4. Enter rails s in your terminal and goto `localhost:3000/` and from there to Charging, Query and refund API can also be accessed.
 
 Sample code snippet to create a charging request object are shown below:
 
+```
 //In the check out page, create a form which will contain all the user input parameters and mention the controller value and action value
+
 <form method="post" controller="charging" action="charging_display">
-<input id="buyer_email_address" name="buyer_email_address" type="text" value="user@domain.com" class="input-xlarge" required="">
-<input id="buyer_phone_no" name="buyer_phone_no" type="text" value="9999999999" class="input-xlarge">
-//similarly add the other parameters - make sure all the mandatory parameters are added
+  <input id="buyer_email_address" name="buyer_email_address" type="text" value="user@domain.com" class="input-xlarge" required="">
+  <input id="buyer_phone_no" name="buyer_phone_no" type="text" value="9999999999" class="input-xlarge">
+  //similarly add the other parameters - make sure all the mandatory parameters are added
+</form>
 
 //then in the file charging_controller.rb, define the action charging_display
 //import the dependent files config.rb and charging_request.rb
@@ -73,5 +71,6 @@ def charging_display
 <% else %>
   Error Message: <%= @request_array["error_message"] %>
 <% end %>
+```
 
 For complete code sample for the integration you can refer the example and the SDK
