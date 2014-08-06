@@ -22,6 +22,7 @@ Sample code snippet to create a charging request object are shown below:
   <input id="buyer_email_address" name="buyer_email_address" type="text" value="user@domain.com" class="input-xlarge" required="">
   <input id="buyer_phone_no" name="buyer_phone_no" type="text" value="9999999999" class="input-xlarge">
   //similarly add the other parameters - make sure all the mandatory parameters are added
+  //The parameters item_vertical,item_total and buyer_phone_no are now mandatory.Pass these parameters for all the transactions(both domestic and international).
 </form>
 
 //then in the file charging_controller.rb, define the action charging_display
